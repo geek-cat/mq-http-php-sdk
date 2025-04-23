@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Responses;
 
 use MQ\Exception\MQException;
@@ -12,7 +13,7 @@ abstract class BaseResponse
 
     abstract public function parseResponse($statusCode, $content);
 
-    abstract public function parseErrorResponse($statusCode, $content, MQException $exception = NULL);
+    abstract public function parseErrorResponse($statusCode, $content, MQException|null $exception = NULL);
 
     public function isSucceed()
     {
@@ -61,4 +62,4 @@ abstract class BaseResponse
     }
 }
 
-?>
+

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Common;
 
 class XMLParser
@@ -6,7 +7,8 @@ class XMLParser
     /**
      * Most of the error responses are in same format.
      */
-    static function parseNormalError(\XMLReader $xmlReader) {
+    public static function parseNormalError(\XMLReader $xmlReader): array
+    {
         $result = array('Code' => NULL, 'Message' => NULL, 'RequestId' => NULL, 'HostId' => NULL);
         while ($xmlReader->Read())
         {
@@ -48,4 +50,4 @@ class XMLParser
     }
 }
 
-?>
+

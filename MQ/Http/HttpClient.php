@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace MQ\Http;
 
 use GuzzleHttp\Exception\TransferException;
@@ -25,7 +27,7 @@ class HttpClient
     private $agent;
 
     public function __construct($endPoint, $accessId,
-        $accessKey, $securityToken = NULL, Config $config = NULL)
+        $accessKey, $securityToken = NULL, Config|null $config = NULL)
     {
         if ($config == NULL)
         {
@@ -87,7 +89,7 @@ class HttpClient
     }
 
     public function sendRequestAsync(BaseRequest $request,
-        BaseResponse &$response, AsyncCallback $callback = NULL)
+        BaseResponse &$response, AsyncCallback|null $callback = NULL)
     {
         $promise = $this->sendRequestAsyncInternal($request, $response, $callback);
         return new MQPromise($promise, $response);
@@ -99,7 +101,7 @@ class HttpClient
         return $promise->wait();
     }
 
-    private function sendRequestAsyncInternal(BaseRequest &$request, BaseResponse &$response, AsyncCallback $callback = NULL)
+    private function sendRequestAsyncInternal(BaseRequest &$request, BaseResponse &$response, AsyncCallback|null $callback = NULL)
     {
         $this->addRequiredHeaders($request);
 
@@ -149,4 +151,4 @@ class HttpClient
     }
 }
 
-?>
+

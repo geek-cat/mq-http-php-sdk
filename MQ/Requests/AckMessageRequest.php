@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Requests;
 
 use MQ\Constants;
@@ -67,4 +68,4 @@ class AckMessageRequest extends BaseRequest
         return http_build_query($params);
     }
 }
-?>
+

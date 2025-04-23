@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Requests;
 
 use MQ\Constants;
@@ -45,4 +46,4 @@ class PublishMessageRequest extends BaseRequest
         return NULL;
     }
 }
-?>
+

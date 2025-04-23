@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Model;
 
 class MessagePartialResult
@@ -34,4 +35,4 @@ class MessagePartialResult
     }
 }
 
-?>
+

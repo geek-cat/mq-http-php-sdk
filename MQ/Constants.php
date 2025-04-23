@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ;
 
 class Constants
@@ -56,4 +57,4 @@ class Constants
     const TRANSACTION_ORDER = "order";
 }
 
-?>
+

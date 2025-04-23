@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Traits;
 
 use MQ\Constants;
@@ -106,4 +107,4 @@ trait MessagePropertiesForConsume
     }
 }
 
-?>
+

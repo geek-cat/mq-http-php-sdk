@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Responses;
 
 use MQ\Common\XMLParser;
@@ -38,7 +39,7 @@ class PublishMessageResponse extends BaseResponse
 
     public function readMessageIdAndMD5XML(\XMLReader $xmlReader)
     {
-        $message = Message::fromXML($xmlReader, TRUE);
+        $message = Message::fromXML($xmlReader);
         $topicMessage = new TopicMessage(NULL);
         $topicMessage->setMessageId($message->getMessageId());
         $topicMessage->setMessageBodyMD5($message->getMessageBodyMD5());
@@ -47,7 +48,7 @@ class PublishMessageResponse extends BaseResponse
         return $topicMessage;
     }
 
-    public function parseErrorResponse($statusCode, $content, MQException $exception = NULL)
+    public function parseErrorResponse($statusCode, $content, MQException|null $exception = NULL)
     {
         $this->succeed = FALSE;
         $xmlReader = $this->loadXmlContent($content);
@@ -80,4 +81,4 @@ class PublishMessageResponse extends BaseResponse
     }
 }
 
-?>
+

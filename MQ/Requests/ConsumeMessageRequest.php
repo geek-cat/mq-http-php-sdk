@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Requests;
 
 class ConsumeMessageRequest extends BaseRequest
@@ -95,4 +96,4 @@ class ConsumeMessageRequest extends BaseRequest
         return http_build_query($params);
     }
 }
-?>
+

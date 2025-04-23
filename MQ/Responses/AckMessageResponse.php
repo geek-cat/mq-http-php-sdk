@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Responses;
 
 use MQ\Common\XMLParser;
@@ -26,7 +27,7 @@ class AckMessageResponse extends BaseResponse
         }
     }
 
-    public function parseErrorResponse($statusCode, $content, MQException $exception = NULL)
+    public function parseErrorResponse($statusCode, $content, MQException|null $exception = NULL)
     {
         $this->succeed = FALSE;
         $xmlReader = $this->loadXmlContent($content);
@@ -92,4 +93,4 @@ class AckMessageResponse extends BaseResponse
     }
 }
 
-?>
+

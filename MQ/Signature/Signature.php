@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace MQ\Signature;
 
 use MQ\Constants;
@@ -26,7 +28,7 @@ class Signature
         {
             $canonicalizedResource .= "?" . $request->getQueryString();
         }
-        if (0 !== strpos($canonicalizedResource, "/"))
+        if (!str_starts_with($canonicalizedResource, "/"))
         {
             $canonicalizedResource = "/" . $canonicalizedResource;
         }
@@ -34,7 +36,7 @@ class Signature
         $tmpHeaders = array();
         foreach ($headers as $key => $value)
         {
-            if (0 === strpos($key, Constants::HEADER_PREFIX))
+            if (str_starts_with($key, Constants::HEADER_PREFIX))
             {
                 $tmpHeaders[$key] = $value;
             }
@@ -49,4 +51,4 @@ class Signature
     }
 }
 
-?>
+

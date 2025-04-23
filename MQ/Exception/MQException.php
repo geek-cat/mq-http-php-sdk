@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Exception;
 
 class MQException extends \RuntimeException
@@ -67,4 +68,4 @@ class MQException extends \RuntimeException
     }
 }
 
-?>
+

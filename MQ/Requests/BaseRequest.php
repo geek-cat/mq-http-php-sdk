@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Requests;
 
 abstract class BaseRequest
@@ -74,4 +75,4 @@ abstract class BaseRequest
     }
 }
 
-?>
+

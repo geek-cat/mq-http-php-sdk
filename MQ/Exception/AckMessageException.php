@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Exception;
 
 use MQ\Constants;
@@ -31,4 +32,4 @@ class AckMessageException extends MQException
     }
 }
 
-?>
+

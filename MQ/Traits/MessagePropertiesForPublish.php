@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Traits;
 
 use MQ\Constants;
 use MQ\Exception\MQException;
-use MQ\Model\MessageAttributes;
+//use MQ\Model\MessageAttributes;
 
 trait MessagePropertiesForPublish
 {
@@ -106,11 +107,11 @@ trait MessagePropertiesForPublish
 
     private function isContainSpecialChar($str)
     {
-        return strpos($str,"&") !== FALSE
-            || strpos($str, "\"") !== FALSE || strpos($str, "'") !== FALSE
-            || strpos($str, "<") !== FALSE || strpos($str, ">") !== FALSE
-            || strpos($str, ":") !== FALSE || strpos($str, "|") !== FALSE;
+        return str_contains($str, "&")
+            || str_contains($str, "\"") || str_contains($str, "'")
+            || str_contains($str, "<") || str_contains($str, ">")
+            || str_contains($str, ":") || str_contains($str, "|");
     }
 }
 
-?>
+

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ\Model;
 
 use MQ\Constants;
@@ -164,4 +165,4 @@ class Message
     }
 }
 
-?>
+

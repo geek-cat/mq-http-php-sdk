@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace MQ;
 
 use MQ\Exception\InvalidArgumentException;
@@ -11,6 +12,8 @@ use MQ\Responses\ConsumeMessageResponse;
 class MQTransProducer extends MQProducer
 {
     private $groupId;
+
+    private $messageTag='';
 
     function __construct(HttpClient $client, $instanceId, $topicName, $groupId)
     {
@@ -96,4 +99,4 @@ class MQTransProducer extends MQProducer
     }
 }
 
-?>
+

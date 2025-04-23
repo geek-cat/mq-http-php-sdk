@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace MQ\Responses;
 
 use GuzzleHttp\Exception\TransferException;
@@ -51,4 +53,3 @@ class MQPromise
     }
 }
 
-?>
