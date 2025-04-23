@@ -38,6 +38,9 @@ abstract class BaseResponse
     protected function loadXmlContent($content)
     {
         $xmlReader = new \XMLReader();
+        if (is_object($content) && get_class($content) == 'GuzzleHttp\\Psr7\\Stream') {
+            $content = $content->getContents();
+        }
         $isXml = $xmlReader->XML($content);
         if ($isXml === FALSE) {
             throw new MQException($this->statusCode, $content);
